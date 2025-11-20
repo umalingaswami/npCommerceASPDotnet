@@ -3,34 +3,27 @@ title: Presentation Layer Overview
 ---
 # Overview of the Presentation Layer
 
-The Presentation Layer in nopCommerce is responsible for managing the user interface and user experience. It controls how data is displayed to users and facilitates user interactions through web pages and views, serving as the bridge between users and the platform's underlying business logic.
+The Presentation Layer in nopCommerce is the component responsible for managing the user interface and handling user interactions. It determines how data is displayed to users and how users provide input to the system.
 
-# Implementation with [ASP.NET](http://ASP.NET) Core MVC
+This layer acts as a bridge between the user and the underlying business logic and services, retrieving data to present and sending user input back for processing.
 
-This layer is implemented using [ASP.NET](http://ASP.NET) Core MVC, which provides essential features such as routing, controllers, views, and model binding. These components enable the dynamic retrieval and presentation of data, as well as efficient handling of user inputs, ensuring a responsive and interactive user interface.
+# Implementation with [ASP.NET](http://ASP.NET) Core 5
 
-# Extensibility through Themes and Plugins
+Built using [ASP.NET](http://ASP.NET) Core 5, the Presentation Layer leverages a modern, cross-platform web framework. This choice enables nopCommerce to run on multiple operating systems while supporting contemporary web development practices such as dependency injection, middleware, and Razor Pages or MVC.
 
-To support customization and modularity, the Presentation Layer allows extensibility via themes and plugins. Developers can modify the platform's appearance and behavior without changing the core codebase, which simplifies updates and maintenance while enabling tailored user experiences.
+# Separation of Concerns
 
-# Cross-Platform Compatibility
+By isolating the user interface logic within the Presentation Layer, nopCommerce achieves a clear separation of concerns. This separation enhances maintainability and scalability by keeping UI code distinct from business logic and data access layers.
 
-Leveraging [ASP.NET](http://ASP.NET) Core ensures that the Presentation Layer is cross-platform compatible. This design choice allows nopCommerce to run consistently across different operating systems, providing a uniform user experience regardless of the deployment environment.
+# Extensibility via Themes and Plugins
 
-# Data Flow in the Presentation Layer
+The Presentation Layer supports extensibility through themes and plugins. Themes allow developers to customize the visual appearance of the storefront, including layout, colors, and styles, without modifying core code. Plugins can introduce new UI features or modify existing ones, such as adding widgets or promotional banners, enabling flexible customization.
 
-When a user interacts with the storefront, the Presentation Layer processes requests through controllers that communicate with business services to retrieve necessary data. The retrieved data is then passed to views, which render the dynamic content users see. Themes can be applied at this stage to alter the visual style without impacting the underlying logic.
+These extensibility mechanisms ensure that the core business logic remains unaffected while allowing rich customization of the user experience.
 
-```mermaid
-graph TD
-  User -->|Request| Controller
-  Controller -->|Calls| BusinessServices
-  BusinessServices -->|Returns Data| Controller
-  Controller -->|Passes Data| View
-  View -->|Renders| User
-  View -->|Applies| Theme
-  Theme -->|Customizes| View
-```
+# Example Use Case
+
+For example, a plugin might add a new promotional banner widget to the storefront, enhancing marketing capabilities. Alternatively, a theme could change the entire layout and color scheme to align with a brand's identity. Both changes are handled within the Presentation Layer, demonstrating its role in managing UI customization.
 
 &nbsp;
 
